@@ -1,3 +1,9 @@
+CREATE TABLE users (
+     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+     username VARCHAR(50) NOT NULL, /*contraint unique*/
+     password VARCHAR(100) NOT NULL 
+     );
+
 CREATE TABLE ordenes(
 	id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	fecha_creacion DATE NOT NULL,
@@ -7,6 +13,18 @@ CREATE TABLE ordenes(
     cupones_id INT(10) NULL DEFAULT NULL
     );
  
+     
+CREATE TABLE roles (
+	 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	 role VARCHAR(50) NOT NULL
+     );
+	
+/* Muchos a muchos*/
+CREATE TABLE users_roles(
+	users_id INT NOT NULL,
+    roles_id INT NOT NULL,
+    PRIMARY KEY(users_id, roles_id)
+);
 CREATE TABLE socios(
 	id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	apellido VARCHAR(50) NOT NULL,
@@ -60,24 +78,6 @@ UNIQUE(codigo);
      roles
      user_roles
      */
-	 
-CREATE TABLE users (
-     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-     username VARCHAR(50) NOT NULL, /*contraint unique*/
-     PASSWORD VARCHAR(100) NOT NULL 
-     );
-     
-CREATE TABLE roles (
-	 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	 role VARCHAR(50) NOT NULL
-     );
-	
-/* Muchos a muchos*/
-CREATE TABLE users_roles(
-	users_id INT NOT NULL,
-    role_id INT NOT NULL,
-    PRIMARY KEY(users_id, roles_id)
-);
 
 ALTER TABLE users_roles 
 ADD CONSTRAINT FK_USERS_users_id
@@ -86,7 +86,7 @@ REFERENCES users(id);
 
 ALTER TABLE users_roles
 ADD CONSTRAINT FK_ROLES_roles_id
-FOREIGN KEY(roles_id)
+FOREIGN KEY(role_id)
 REFERENCES roles(id);
 
 ALTER TABLE users
@@ -99,17 +99,6 @@ UNIQUE(ROLE);
 
 DESCRIBE roles;
 
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-s
-     
-    
-    
+INSERT INTO users(username,password) values('admin', 'admin');
+INSERT INTO roles(role) values('ADMIN');
+ 

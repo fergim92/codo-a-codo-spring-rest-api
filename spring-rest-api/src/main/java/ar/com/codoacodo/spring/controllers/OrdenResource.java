@@ -1,6 +1,8 @@
 package ar.com.codoacodo.spring.controllers;
 
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,9 +26,19 @@ public class OrdenResource {
 		 
 		Optional<Users> users = this.service.obtenerPorId(1l);
 		 
-		UsersDTO dto = new UsersDTO();
+		UsersDTO dto = null;
+			
 		if (!users.isEmpty()) {
-			dto.setUsernombre(users.get().getUsername());
+			Set<String> rolesStrs = users.get().getRoles()
+					.stream()
+				    .map(r -> "ROLE_" + r.getRole())
+					.collect(Collectors.toSet());
+					
+			dto = UsersDTO.builder()
+					.username(null)
+					.roles(rolesStrs)
+		 			.build();
+			
 		}
 		 
 		 		  
