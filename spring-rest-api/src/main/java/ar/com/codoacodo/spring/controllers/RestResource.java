@@ -9,7 +9,7 @@ import ar.com.codoacodo.spring.domain.User;
 
 
 @RestController //para usar rest puro
-public class RestResources {
+public class RestResource {
 	@Autowired   //esta clase esta dentro del contexto creado como un Bean, lo instancia el contenedor, no yo y lo pone aca adentro para que ya este vivo
 	private User user; 
 	
