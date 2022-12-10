@@ -1,7 +1,7 @@
 package ar.com.codoacodo.spring.controllers;
 
 
-import java.sql.Date;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -46,13 +46,15 @@ public class OrdenResource {
 			ordenDb = Ordenes.builder()
 				.montoTotal(ordenDto.getMontoTotal ())
 				.socio(Socios.builder().id(ordenDto.getSocioId()).build())
-				.estado(EstadoOrdenes.builder().id(ordenDto.getSocioId()).build())
-				.cupon(ordenDto.getCuponId() != null ? Cupones.builder().id(ordenDto.getSocioId()).build() : null)
+				.estado(EstadoOrdenes.builder().id(ordenDto.getEstadoId()).build())
+				.cupon(ordenDto.getCuponId() != null ? Cupones.builder().id(ordenDto.getCuponId()).build() : null)
 				.fechaCreacion(new Date())//ahora se esta creado
 				.build( );
-			this.ordenService.save(ordenDb);
+			ordenDb = this.ordenService.save(ordenDb);
+		}else {
+			ordenDb = this.ordenService.getById(ordenDto.getId());
 		}
-		ordenDb = this.ordenService.getById(ordenDto.getId());
+	
 		return ResponseEntity.ok(ordenDb);
 	} 
 
