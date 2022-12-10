@@ -14,6 +14,7 @@ import ar.com.codoacodo.spring.domain.Users;
  * Esto se prueba con un service(UsersServices)
  */
 
-@Repository
-public interface UserRepository extends JpaRepository<Users, Long>{ 
+@Repository  //representa una entidad , tener un archivo por tabla    
+public interface UserRepository extends JpaRepository<Users, Long>{ //tabla con el que esta conectado este repositorio 
 }
+ 
