@@ -1,3 +1,5 @@
+
+
 package ar.com.codoacodo.spring.domain;
 
 import javax.persistence.Column;
@@ -19,18 +21,19 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name="socios")
+@Table(name = "socios")
 public class Socios {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private Long id;
 	
-	@Column(name="apellido", nullable = false, length = 50)
+	@Column(name = "apellido",nullable = false, length = 50)
 	private String apellido;
 	
-	@Column(name="nombre", nullable = false, length = 60)
+	@Column(name = "nombre",nullable = false, length = 60)
 	private String nombre;
 	
-	@Column(name="codigo", unique = true, length = 6)
+	@Column(name = "codigo",unique = true, length = 6)
 	private String codigo;
 }

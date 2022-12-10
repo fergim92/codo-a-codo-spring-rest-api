@@ -5,8 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import ar.com.codoacodo.spring.domain.Ordenes;
 
-
 @Repository
-public interface OrdenesRepository extends JpaRepository<Ordenes,Long> {
-
+public interface OrdenesRepository extends JpaRepository<Ordenes, Long>{
+//ctrl+o
 }

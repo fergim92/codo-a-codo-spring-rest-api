@@ -1,13 +1,11 @@
 package ar.com.codoacodo.spring.dtos;
 
-import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor 
+@NoArgsConstructor
 @AllArgsConstructor
 public class OrdenDTO {
 
@@ -17,9 +15,7 @@ public class OrdenDTO {
 
 	private Long estadoId;
 
-	private Float montoTotal; 
+	private Float montoTotal;
 
 	private Long cuponId;
-	
 }
-

@@ -8,24 +8,26 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ar.com.codoacodo.spring.domain.Users;
 import ar.com.codoacodo.spring.repository.UserRepository;
- 
-@Service
-@Transactional  //hace un open connection con la BD y usaria por debajo el reposositorio y con la conexion abierta ir al repositorio pegarle a la BD y  traer la informacion
-public class UsersServicesImpl implements UsersService{
 
-	//Necesito el/los repositorios
+@Service
+@Transactional
+public class UsersServiceImpl implements UsersService{
+	
+	//necesito el/los repositorio
 	@Autowired
 	private UserRepository userRepository;
 	
-	/*
-	 * Si sale todo bien!
-	 * commit
-	 * si existe alguna Exception
-	 * rollback
-	 */
+	//abren una conexion con la db
 	public Optional<Users> obtenerPorId(Long id) {
+		//si todo sale bien!!
+		//commit
+		//si existe alguna Exception 
+		//rollback
 		return this.userRepository.findById(id);
-		
+	}
+
+	@Override
+	public Users findByName(String name) {
+		return this.userRepository.findByUsername(name);//ctrl+shit+i
 	}
 }
- 

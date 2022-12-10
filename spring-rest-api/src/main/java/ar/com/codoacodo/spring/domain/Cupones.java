@@ -21,29 +21,29 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString  
+@ToString
 @Entity
 @Table(name = "cupones")
 public class Cupones {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name="nombre", nullable = false, length = 100)
+	@Column(name = "nombre",nullable = false, length = 100)
 	private String nombre;
 	
-	@Column(name="codigo", nullable = true , length = 10)
+	@Column(name = "codigo",unique = true, length = 10)
 	private String codigo;
 	
-	@DateTimeFormat(pattern = "yyyy-MM--dd")
-	@Column(name = "fecha_vigencia_desde",nullable = false)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(name = "fecha_vigencia_desde",nullable = false)	
 	private Date fechaVigenciaDesde;
 	
-	@DateTimeFormat(pattern = "yyyy-MM--dd")
-	@Column(name = "fecha_vigencia_hasta", nullable = true)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(name = "fecha_vigencia_hasta",nullable = true)
 	private Date fechaVigenciaHasta;
 	
-	@Column(name = "descuento", nullable = true)
+	@Column(name = "descuento",nullable = true)
 	private Float descuento;
 }

@@ -5,8 +5,7 @@ import java.util.Optional;
 import ar.com.codoacodo.spring.domain.Users;
 
 public interface UsersService {
-	public  Optional<Users> obtenerPorId(Long id); 
-}
+	public Optional<Users> obtenerPorId(Long id);
 
-//Necesito la implementacion de esto :
- 
+	public Users findByName(String name);
+}

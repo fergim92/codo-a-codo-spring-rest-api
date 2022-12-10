@@ -6,9 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Builder  
+@Builder
 public class UsersDTO {
 	private String username;
 	private Set<String> roles;
 }
-  

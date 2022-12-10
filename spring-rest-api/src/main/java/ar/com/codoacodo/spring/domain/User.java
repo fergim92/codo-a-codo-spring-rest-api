@@ -7,16 +7,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Component
-//lombok : setters,getters,constructores automagicos
+//lombok
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
-	
+
 	private Long id;
 	private String username;
 	private String password;
-
-		
-
 }
