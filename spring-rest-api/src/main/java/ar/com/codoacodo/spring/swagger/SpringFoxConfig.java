@@ -57,7 +57,7 @@ public class SpringFoxConfig {
 	
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
-				.contact(new Contact("carlos", "http://sitio.com", "email@email.com"))
+				.contact(new Contact("Fernando Gimenez", "http://sitio.com", "email@email.com"))
 				.description("Proyecto Rest final, Bootcamp")
 				.title("SpringBoot + JWT + Swagger ")
 				.build();
