@@ -37,7 +37,7 @@ public class Cupones {
 	private String codigo;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Column(name = "fecha_vigencia_desde",nullable = false)	
+	@Column(name = "fecha_vigencia_dese",nullable = false)	
 	private Date fechaVigenciaDesde;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
